@@ -1,0 +1,28 @@
+<html>
+<head>
+
+</head>
+<body>
+<div>
+    testee, abaixo - meu último filme inserido foi :
+    <h2>
+        {{ lista[-1] }}
+    </h2>
+
+    <table>
+        <thead>
+            <td><b>Nome Filme</b></td>
+        </thead>
+        <tbody>
+        {% for filme in lista %}
+            <tr>
+                <td>
+                    >>>>> {{ filme }}
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

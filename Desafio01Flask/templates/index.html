@@ -1,0 +1,51 @@
+{% extends "bootstrap/base.html" %}
+<title>Detalhe</title>
+
+
+{% block content %}
+<h1> Desafio 01</h1>
+<hr>
+<p> Criar uma comunicação do backend com o front-end com uma 'lista de interesses'/dados.</p>
+<hr>
+<div class="container">
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">CPF</th>
+      <th scope="col">Detalhes</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for pessoas in list_person: %}
+    <tr>
+      <th scope="row">{{pessoas['id']}}</th>
+      <td>{{pessoas['nome']}}</td>
+      <td>{{pessoas['cpf']}}</td>
+      <td><button class="btn btn-primary" onclick="clicou({{pessoas}})" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Ver detalhes
+  </button></td>
+    </tr>
+  {% endfor %}
+  </tbody>
+</table>
+  <hr>
+    <div class="collapse" id="collapseExample">
+      <h3>Interesses</h3>
+      <div><b>Produtos:</b></div>
+      <div id="produtos"></div>
+      <br><br>
+      <div><b>Lugares:</b></div><div id="lugares"></div>
+    </div>
+</div>
+    <script>
+      function clicou(pessoas){
+
+        var produtos = pessoas.interesses.produtos;
+        var lugares = pessoas.interesses.lugares;
+        document.querySelector('#produtos').innerHTML = produtos;
+        document.querySelector('#lugares').innerHTML = lugares;
+      }
+    </script>
+    {% endblock %}
