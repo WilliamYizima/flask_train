@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="container">
+    <div class="row">
+        {% for pok in obj %}
+        <div class="col-md-3 mt-3">
+            <div class="card">
+                <img class="card-img-top" style="height:200px;" src="{{ url_for('static',filename='img/bulba.png')}}"
+                     alt="Card image cap" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="text-center">{{pok['name']}}</h5>
+                    <p class="text-center">{{pok.email}}</p>
+                </div>
+                <div id="teste" class="card-footer">
+                    <input type="hidden" value="{{pok.id}}">
+                    <a href="/detail/{{pok.id}}" class="btn btn-primary">Detail</a>
+                    <button onclick="deletar('{{pok.id}}')" class="float-right btn btn-sm btn-warning"> Delete</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!--  MODAL-->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/create" method="POST" enctype="multipart/form-data">
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="nome">Nome</label>
+                                <input name="nome" class="form-control" id="nome" required>
+                            </div>
+                            <div class="form-group col-md-2">
+                                <label for="preco">Preço</label>
+                                <input  name="email" class="form-control" id="preco" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col-md-6">
+                                <label for="descricao">Idade</label>
+                                <input name="idade" class="form-control" id="descricao" required>
+                            </div>
+                        </div>
+<!--                        <div class="custom-file">-->
+<!--                            <input name="arquivo" type="file" class="custom-file-input" id="customFile">-->
+<!--                            <label class="custom-file-label" for="customFile">Choose file</label>-->
+<!--                        </div>-->
+                        <button type="submit" class="btn btn-primary">Criar</button>
+                        <div class="modal-footer">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            async function deletar(_id){
+                console.log(_id)
+                let response = await fetch(`/delete/${_id}`,{
+                    method:'DELETE',
+                });
+                document.location.reload(true);
+            }
+
+        </script>
+        <!--  MODAL END-->
+
+    </div>
+
+    {% endblock %}

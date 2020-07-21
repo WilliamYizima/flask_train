@@ -18,7 +18,9 @@ class Pokemon(Document):
     price = FloatField(required=True)
     description = StringField(required=True)
     imagem = FileField()
-#TODO imagem é opcional
+
+
+# TODO imagem é opcional
 
 @app.route('/')
 def index():
@@ -32,7 +34,6 @@ def find():
     _name = request.form['name']
     regex = re.compile(f'.*{_name}.*')
     pokemon_name = Pokemon.objects(name=regex)
-    print(pokemon_name)
     return render_template('index.html', lista_pokemon=pokemon_name)
 
 

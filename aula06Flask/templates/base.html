@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "bootstrap/base.html" %}
+{% block head%}
+{{ super() }}
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
+
+</head>
+{% endblock %}
+{% block title%} e-commerce teste{% endblock %}
+<body>
+{% block navbar %}
+
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <nav class="navbar navbar-light bg-light justify-content-between">
+
+        <form class="form-inline" action="\find" method="POST">
+            <input class="form-control mr-sm-2" name="name" type="search" placeholder="Escreva o NOME para busca" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </nav>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal" data-whatever="@fat">
+        Insert Pokemon
+    </button>
+    <button type="button" class="btn btn-info" onclick="window.location='/';">List</button>
+    <hr>
+    {% block page_content %}{% endblock %}
+</div>
+
+{% endblock %}
+
+</body>
+</html>
