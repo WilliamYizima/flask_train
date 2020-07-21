@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+{% block head %}
+<head>
+    <meta charset="UTF-8">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='alien.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+{% endblock %}
+
+<body>
+{% block navbar %}
+  <nav>
+    <div class="nav-wrapper light-green accent-3">
+<!--      <a  href="#!" class="brand-logo">Y</a>-->
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/"><b>Inicial</b></a></li>
+        <li><a href="/perfil"><b>Perfil</b></a></li>
+        <li><a href="/auth/login"><b>login</b></a></li>
+        <li><a href="/auth/logout"><b>logout</b></a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <ul class="sidenav" id="mobile-demo light-green accent-3">
+    <li><a href="sass.html">Inicial</a></li>
+    <li><a href="/auth/login"><b>login</b></a></li>
+    <li><a href="/auth/logout"><b>logout</b></a></li>
+  </ul>
+
+{% endblock %}
+
+{% block content %}
+<body>
+<div class="container">
+    {% block page_content %}{% endblock %}
+</div>
+</body>
+</html>
+{% endblock %}
+
+

@@ -1,0 +1,115 @@
+body {
+  height: 100vh;
+  background: #222225;
+  color: #039be5 !important;
+}
+#logo {
+    background: url({{url_for('static',filename='yen.jpg')}});
+}
+.input-field input[type=text]:focus {
+     color: #039be5;
+}
+
+.input-field input {
+     color: #039be5;
+}
+
+.formulario{
+    display: inline-block;
+    margin: 1.5% 40%;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    border: 2px solid #000000;
+    border-radius:10px;
+}
+
+.formulario a{
+    text-align:center;
+    padding-left:35%;
+}
+
+
+.alien {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  width: 400px;
+  height: 330px;
+  background: #76ff03;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 200px);
+  border-radius: 45% 45% 0 0;
+}
+.alien .ears * {
+  width: 50px;
+  height: 150px;
+  background: #76ff03;
+  position: absolute;
+  top: -50px;
+}
+.alien .ears .ear:first-of-type {
+  transform: rotate(-30deg);
+}
+.alien .ears .ear:last-of-type {
+  left: 350px;
+  transform: rotate(30deg);
+}
+.alien .ears *::before {
+  content: "";
+  width: 80px;
+  height: 80px;
+  background: #7aac43;
+  border-radius: 50%;
+  position: absolute;
+  top: -20px;
+  left: -15px;
+}
+.alien .eye {
+  width: 200px;
+  height: 200px;
+  background: #fff;
+  border-radius: 50%;
+  transition: 0.1s;
+  position: absolute;
+  left: calc(50% - 100px);
+  top: calc(60% - 150px);
+  overflow: hidden;
+}
+.alien .eye .pupil {
+  width: 110px;
+  height: 110px;
+  background: #000;
+  border-radius: 50%;
+  position: relative;
+  transform: translate(50%, 50%);
+}
+.alien .eye .pupil::after {
+  content: "";
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+.alien .mouth {
+  width: 140px;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: #000;
+  border-radius: 30px 30px 50px 50px;
+  position: absolute;
+  bottom: 15px;
+  left: calc(50% - 70px);
+}
+.alien .mouth .teeth * {
+  width: 25px;
+  display: inline-block;
+  border: 10px solid transparent;
+  border-top: 20px solid #fff;
+}

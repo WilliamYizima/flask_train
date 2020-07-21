@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block page_content %}
+<div class="row">
+    <form class="col s12" action="/cadastro" method="post">
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="first_name" type="text" class="validate" name="name">
+                <label for="first_name">nome</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate" name="last_name">
+                <label for="last_name">sobrenome</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <input id="email" type="email" class="validate" name="email">
+                <label for="email">email</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="password" type="password" class="validate" name="senha">
+                <label for="password">senha</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="age" type="number" class="validate" name="age">
+                <label for="age">idade</label>
+            </div>
+            <div class="input-field col s8">
+                <input id="like" type="text" class="validate" name="hobby">
+                <label for="like">interesse</label>
+            </div>
+        </div>
+    <button type="submit " class="btn btn-primary " style="float:right ">Submit</button>
+    </form>
+</div>
+
+
+
+<br><br>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block page_content %}
+
+
+<!--<h1>Hi, {{current_user.name}}</h1>-->
+<div class="container">
+    <div class="feed">
+        <div class="row">
+            <div class="col s12 m7">
+                <div class="card" style="margin:5rem 0 2rem 0;">
+<!--                    <div class="card-image">-->
+<!--                        <img src="images/sample-1.jpg">-->
+                        <span class="card-title">Hi, {{data_user.name}}</span>
+<!--                    </div>-->
+<!--                    <div class="card-content">-->
+                        <form class="col s12" action="/modificar" method="post">
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input value="{{data_user.name}}" id="first_name" type="text" class="validate" name="name">
+                                    <label for="first_name">nome</label>
+                                </div>
+                                <div class="input-field col s6">
+                                    <input value="{{data_user.last_name}}" id="last_name" type="text" class="validate" name="last_name">
+                                    <label for="last_name">sobrenome</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <input value="{{data_user.email}}" id="email" type="email" class="validate" name="email">
+                                    <label for="email">email</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s6">
+                                    <input id="password" type="password" class="validate" name="senha">
+                                    <label for="password">senha</label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s4">
+                                    <input value="{{data_user.age}}" id="age" type="number" class="validate" name="age">
+                                    <label for="age">idade</label>
+                                </div>
+                                <div class="input-field col s8">
+                                    <input value="{{data_user.hobby}}" id="like" type="text" class="validate" name="hobby">
+                                    <label for="like">interesse</label>
+                                </div>
+<!--                            </div>-->
+
+                        </form>
+                        <div class="card-action">
+                            <button type="submit " class="btn btn-primary " style="float:right ">Submit</button>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}

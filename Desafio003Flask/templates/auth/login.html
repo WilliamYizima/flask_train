@@ -1,0 +1,43 @@
+
+{% extends "base.html" %}
+{% block page_content %}
+<div class="formulario">
+    <div class="row">
+        <form class="col s12 center-align" action="/auth/login" method="post">
+            <div class="row">
+                <div class="input-field col s12 ">
+                    <input id="email" type="text" class="validate" name="email" required>
+                    <label for="email">email</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="password" type="password" class="validate" required name="password">
+                    <label for="password">Password</label>
+                </div>
+            </div>
+            <button class="btn waves-effect waves-light" type="submit" name="action">submit
+            </button>
+        </form>
+    </div>
+    <!--  #TODO inserir a página de redirecionamento-->
+    <a href="/cadastro">cadastre-se </a>
+</div>
+<div class="alien">
+    <div class="ears">
+        <div class="ear"></div>
+        <div class="ear"></div>
+    </div>
+    <div class="eye">
+        <div class="pupil"></div>
+    </div>
+    <div class="mouth">
+        <div class="teeth">
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+            <div class="tooth"></div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='alien.js')}}"></script>
+{% endblock %}

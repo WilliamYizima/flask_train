@@ -1,0 +1,40 @@
+
+{% extends "base.html" %}
+{% block page_content %}
+
+
+<h1>Hi, {{current_user.name}}</h1>
+
+<br>
+<form class="col s12" action="/post/cadastro" method="post">
+    <!-- Modal Trigger -->
+
+<div class="row">
+            <div class="input-field col s6">
+                <input id="titulo" type="text" class="validate" name="titulo">
+                <label for="titulo">Titulo</label>
+            </div>
+        </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea id="postagem" class="materialize-textarea" name="postagem"></textarea>
+          <label for="postagem">Post</label>
+          <button type="submit " class="btn btn-primary " style="float:right ">Postar</button>
+        </div>
+      </div>
+    </form>
+
+<div>
+    <h2> Post</h2>
+{% for p in data_post: %}
+    <div><h3>Author:{{p['id_post']}}</h3></div>
+    <div><h3>Titulo:{{p['titulo']}}</h3></div>
+    <div><h4>Content:{{p['content']}}</h4></div>
+    <div><h4>Date: {{p['updated_at']}}</h4></div>
+    <div><h4>Likes: {{p['count_like']}}</h4></div>
+    <div><h4>DisLikes: {{p['count_dislike']}}</h4></div>
+    <a href="/post/like/{{p['id_post']}}" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">👍</i></a>
+    <a href="/post/dislike/{{p['id_post']}}" class="btn-floating btn-large waves-effect waves-light"><i class="material-icons">👎👍</i></a>
+{% endfor %}
+</div>
+{% endblock %}
